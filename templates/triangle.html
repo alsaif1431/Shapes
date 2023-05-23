@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>Triangle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2 class="mt-5">-- Triangle --</h2>
+            <div class="mb-3">
+                <label for="base" class="form-label">Enter the Base:</label>
+                <input type="text" class="form-control" id="base" name="base">
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Enter the Height:</label>
+                <input type="text" class="form-control" id="height" name="height">
+            </div>
+            <button type="submit" class="btn btn-primary" name="triangle">Calculate</button>
+            <img src="{% static 'images/triangle.png' %}" height="130px" width="130px" alt="" class="mt-3">
+        </form>
+
+        {% if area %}
+            <p class="mt-3">The area of the Triangle is: {{ area }}</p>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
